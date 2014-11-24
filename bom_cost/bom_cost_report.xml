@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <report
+			auto="True"
+			header="False"
+			id="report_bom_cost_structure"
+			model="mrp.bom"
+			name="bom.cost.structure"
+			rml="bom_cost/bom_cost_structure.rml"
+			string="BOM Cost Structure"/>
+    </data>
+</openerp>
