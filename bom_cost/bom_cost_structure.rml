@@ -145,7 +145,7 @@
         <blockTable colWidths="248.0,71.0,71.0,71.0,71.0" style="Table3">
           <tr>
             <td>
-              <para style="terp_default_9"><font face="Helvetica" size="8.0" color="white">[[ '... '*(l['level']) ]]</font> - [[ l['name'] ]]</para>
+              <para style="terp_default_9"><font face="Helvetica" size="8.0" color="white">[[ '... '*(l['level']) ]]</font>  [[ l['pname'] ]]</para>
             </td>
             <td>
               <para style="terp_default_Centre_9">[[ l['code'] ]]</para>
