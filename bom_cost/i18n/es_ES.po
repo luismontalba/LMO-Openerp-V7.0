@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-24 16:16+0000\n"
-"PO-Revision-Date: 2014-11-24 17:26+0100\n"
+"PO-Revision-Date: 2014-12-05 17:58+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "Esto es la cantidad multiplicada por el precio unitario"
 #: report:bom.cost.structure:0
 #: model:ir.actions.report.xml,name:bom_cost.report_bom_cost_structure
 msgid "BOM Cost Structure"
-msgstr "Coste del despiece de materiales"
+msgstr "Coste de la lista de materiales"
 
 #. module: bom_cost
 #: model:ir.model,name:bom_cost.model_mrp_bom

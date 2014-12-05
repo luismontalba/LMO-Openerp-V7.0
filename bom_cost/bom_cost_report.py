@@ -32,47 +32,21 @@ class bom_cost_structure(report_sxw.rml_parse):
             'get_children':self.get_children,
         })
 
-    def get_children(self, object, level=0):
+    def get_children(self, object):
         result = []
-
-        def _get_rec(object, level):
-            for l in object:
-                res = {}
-                res['name'] = l.name
-                res['pname'] = l.product_id.name
-                res['pcode'] = l.product_id.default_code
-                res['pqty'] = l.product_qty
-                res['uname'] = l.product_uom.name
-                res['ucost'] = l.cost_unit
-                res['cost'] = l.cost
-                res['code'] = l.code
-                res['level'] = level
-                result.append(res)
-                if l.child_complete_ids:
-                    if level<6:
-                        level += 1
-                    _get_rec(l.child_complete_ids,level)
-                    if level>0 and level<6:
-                        level -= 1
-            return result
-
-        children = _get_rec(object,level)
-
-        return children
+        for l in object:
+            res = {}
+            res['name'] = l.name
+            res['pname'] = l.product_id.name
+            res['pcode'] = l.product_id.default_code
+            res['pqty'] = l.product_qty
+            res['uname'] = l.product_uom.name
+            res['ucost'] = l.cost_unit
+            res['cost'] = l.cost
+            res['code'] = l.code
+            result.append(res)
+        return result
 
 report_sxw.report_sxw('report.bom.cost.structure','mrp.bom','bom_cost/bom_cost_structure.rml',parser=bom_cost_structure,header='internal')
 
 
-from osv import fields, osv
-from tools.translate import _
-
-class account_invoice(osv.osv):
-    _inherit='account.invoice'
-    _name='account.invoice'
-
-    def invoice_print(self, cr, uid, ids, context=None):
-        res = super(account_invoice, self).invoice_print( cr, uid, ids,context) #self, cr, uid, ids, context)
-        res["report_name"] = "account.invoice.custom.report"
-        return res
-
-account_invoice()

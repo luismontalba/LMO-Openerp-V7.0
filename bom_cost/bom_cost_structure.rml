@@ -21,7 +21,7 @@
     </blockTableStyle>
     <blockTableStyle id="Table1">
       <blockAlignment value="LEFT"/>
-      <blockValign value="TOP"/>
+      <blockValign value="BOTTOM"/>
       <lineStyle kind="LINEBELOW" colorName="#999999" start="0,-1" stop="0,-1"/>
       <lineStyle kind="LINEBELOW" colorName="#999999" start="1,-1" stop="1,-1"/>
       <lineStyle kind="LINEBELOW" colorName="#999999" start="2,-1" stop="2,-1"/>
@@ -85,10 +85,10 @@
           <para style="terp_tblheader_Details">BOM Name</para>
         </td>
         <td>
-          <para style="terp_tblheader_Details">BOM Ref</para>
+          <para style="terp_tblheader_Details">Quantity</para>
         </td>
         <td>
-          <para style="terp_tblheader_Details_Right">Quantity</para>
+          <para style="terp_tblheader_Details_Right">Ud</para>
         </td>
         <td>
           <para style="terp_tblheader_General_Right">U.Cost</para>
@@ -101,16 +101,17 @@
   </pto_header>
 
     <para style="terp_header_Centre">BOM Cost Structure</para>
+	<para><font face="Helvetica" size="8.0" color="white">' '</font></para>
     <blockTable colWidths="248.0,71.0,71.0,71.0,71.0" style="Table2">
       <tr>
         <td>
           <para style="terp_tblheader_Details">BOM Name</para>
         </td>
         <td>
-          <para style="terp_tblheader_Details">BOM Ref</para>
+          <para style="terp_tblheader_Details">Quantity</para>
         </td>
         <td>
-          <para style="terp_tblheader_Details_Right">Quantity</para>
+          <para style="terp_tblheader_Details_Right">Ud</para>
         </td>
         <td>
           <para style="terp_tblheader_General_Right">U.Cost</para>
@@ -128,10 +129,10 @@
             <para style="terp_default_Bold_9">[[ o.name ]]</para>
           </td>
           <td>
-            <para style="terp_tblheader_Details_Centre">[[ o.code ]]</para>
+            <para style="terp_tblheader_Details_Centre">[[ o.product_qty ]]</para>
           </td>
           <td>
-            <para style="terp_default_Right_9_Bold">[[ o.product_qty ]] [[ o.product_uom.name ]]</para>
+            <para style="terp_default_Right_9_Bold"> [[ o.product_uom.name ]]</para>
           </td>
           <td>
           </td>
@@ -141,17 +142,17 @@
         </tr>
       </blockTable>
       <section>
-        <para style="terp_default_8">[[ repeatIn(get_children(o.bom_lines), 'l') ]]</para>
+        <para>[[ repeatIn(get_children(o.bom_lines), 'l') ]]</para>
         <blockTable colWidths="248.0,71.0,71.0,71.0,71.0" style="Table3">
           <tr>
             <td>
-              <para style="terp_default_9"><font face="Helvetica" size="8.0" color="white">[[ '... '*(l['level']) ]]</font>  [[ l['pname'] ]]</para>
+              <para style="terp_default_9"> [[ l['pname'] ]]</para>
             </td>
             <td>
-              <para style="terp_default_Centre_9">[[ l['code'] ]]</para>
+              <para style="terp_default_Centre_9">[[ l['pqty'] ]]</para>
             </td>
             <td>
-              <para style="terp_default_Right_9">[[ l['pqty'] ]] [[ l['uname'] ]]</para>
+              <para style="terp_default_Right_9"> [[ l['uname'] ]]</para>
             </td>
             <td>
               <para style="terp_default_Right_9">[[ l['ucost'] ]]</para>
