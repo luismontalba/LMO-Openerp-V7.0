@@ -2,7 +2,7 @@
 <document filename="BOM Cost Structure.pdf">
   <template title="BOM Cost Structure" author="Luis M. Ontalba (tecnisagra.oficina@gmail.com" allowSplitting="20">
     <pageTemplate id="first">
-      <frame id="first" x1="31.0" y1="30.0" width="532" height="781"/>
+      <frame id="first" x1="31.0" y1="30.0" width="532" height="771"/>
     </pageTemplate>
   </template>
   <stylesheet>
