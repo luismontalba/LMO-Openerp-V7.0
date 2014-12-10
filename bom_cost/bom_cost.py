@@ -27,7 +27,7 @@ import openerp.addons.decimal_precision as dp
 class mrp_bom_cost(osv.osv):
     _name = 'mrp.bom'
     _inherit = 'mrp.bom'
-    _order = 'cost desc'
+    _order = 'orderbycost desc'
 	
     def _get_cost(self, cr, uid, ids, field_name, arg, context=None):
         result = {}
@@ -36,6 +36,12 @@ class mrp_bom_cost(osv.osv):
                 result[rec.id] = rec.product_qty * rec.cost_unit
             else:
                 result[rec.id] = None
+        return result
+		
+    def _get_copyofcost(self, cr, uid, ids, field_name, arg, context=None):
+        result = {}
+        for rec in self.browse(cr, uid, ids, context=context):
+            result[rec.id] = rec.cost
         return result
     
     _columns = {
@@ -52,7 +58,12 @@ class mrp_bom_cost(osv.osv):
             string='Cost',
             digits_compute=dp.get_precision('Account'),
 			help="This is the quantity multiplied by the unit cost",
+            store=False),
+        'orderbycost':fields.function(
+            _get_copyofcost,
+            type='float',
+            string='Ord',
             store=True),
     }
-
+	
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

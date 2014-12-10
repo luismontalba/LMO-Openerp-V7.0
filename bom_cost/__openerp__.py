@@ -21,7 +21,7 @@
 
 {
     'name' : 'BoM Cost',
-    'version': '1.1',
+    'version': '1.0',
     'author' : 'Luis Martinez Ontalba',
     'website' : 'http://www.tecnisagra.com',
     'category': 'Hidden/Dependency',
