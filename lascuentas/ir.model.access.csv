@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+user_lascuentas_concepto,user.lascuentas.concepto,model_lascuentas_concepto,base.group_user,1,1,1,1
+user_lascuentas_tipo,user.lascuentas.tipo,model_lascuentas_tipo,base.group_user,1,1,1,1
+user_lascuentas_gasto,user.lascuentas.gasto,model_lascuentas_gasto,base.group_user,1,1,1,1
+user_lascuentas_pago,user.lascuentas.pago,model_lascuentas_pago,base.group_user,1,1,1,1
+user_lascuentas_periodo,user.lascuentas.periodo,model_lascuentas_periodo,base.group_user,1,1,1,1
+user_lascuentas_saldo,user.lascuentas.saldo,model_lascuentas_saldo,base.group_user,1,1,1,1
+user_lascuentas_caja,user.lascuentas.caja,model_lascuentas_caja,base.group_user,1,1,1,1
+

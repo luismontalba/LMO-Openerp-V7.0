@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	
+	<!-- Gastos -->	
+	<record id="view_lascuentas_concepto_tree" model="ir.ui.view">
+		<field name="name">lascuentas.concepto.tree</field>
+        <field name="model">lascuentas.concepto</field>
+		<field name="arch" type="xml">
+			<tree string="Conceptos" editable="bottom">
+				<field name="tipo_id"/>
+				<field name="name"/>
+				<field name="activo"/>
+				<field name="reserva_inicial"/>
+				<field name="frecuencia_anual"/>
+				<field name="importe_unitario"/>
+				<field name="prevision_anual"/>
+				<field name="prevision_mensual"/>
+				<field name="ajustar"/>
+				<field name="desviacion_total"/>
+				<field name="reserva_actual"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_lascuentas_concepto_tree" model="ir.actions.act_window">
+        <field name="name">Conceptos</field>
+		<field name="view_id" ref="view_lascuentas_concepto_tree"/>
+        <field name="res_model">lascuentas.concepto</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Gastos" id="menu_lascuentas_gastos" sequence="2"/>
+	<menuitem
+		name="Gastos"
+		parent="menu_lascuentas_gastos"
+        id="menu_lascuentas_gastos_lateral"/>
+	<menuitem
+        action="action_lascuentas_concepto_tree"
+		parent="menu_lascuentas_gastos_lateral"
+        id="menu_action_lascuentas_concepto_tree"
+        sequence="10"/>
+
+	<record id="view_lascuentas_tipo_tree" model="ir.ui.view">
+		<field name="name">lascuentas.tipo.tree</field>
+        <field name="model">lascuentas.tipo</field>
+		<field name="arch" type="xml">
+			<tree string="Tipos" editable="bottom">
+				<field name="name"/>
+				<field name="orden"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_lascuentas_tipo_tree" model="ir.actions.act_window">
+        <field name="name">Tipos</field>
+		<field name="view_id" ref="view_lascuentas_tipo_tree"/>
+        <field name="res_model">lascuentas.tipo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        action="action_lascuentas_tipo_tree"
+		parent="menu_lascuentas_gastos_lateral"
+        id="menu_action_lascuentas_tipo_tree"
+        sequence="20"/>
+		
+	<record id="view_lascuentas_gasto_tree" model="ir.ui.view">
+		<field name="name">lascuentas.gasto.tree</field>
+        <field name="model">lascuentas.gasto</field>
+		<field name="arch" type="xml">
+			<tree string="Gastos" editable="bottom" >
+				<field name="periodo_id"/>
+				<field name="concepto_id"/>
+				<field name="reserva_inicial"/>
+				<field name="frecuencia_anual"/>
+				<field name="importe_unitario"/>
+				<field name="prevision_anual"/>
+				<field name="prevision_mensual"/>
+				<field name="ajustar"/>
+				<field name="pagado"/>
+				<field name="desviacion"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_lascuentas_gasto_tree" model="ir.actions.act_window">
+        <field name="name">Gastos</field>
+		<field name="view_id" ref="view_lascuentas_gasto_tree"/>
+        <field name="res_model">lascuentas.gasto</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        action="action_lascuentas_gasto_tree"
+		parent="menu_lascuentas_gastos_lateral"
+        id="menu_action_lascuentas_gasto_tree"
+        sequence="30"/>
+		
+	<record id="view_lascuentas_gasto_wiz" model="ir.ui.view">
+		<field name="name">lascuentas.gasto.wiz</field>
+        <field name="model">lascuentas.actualizar</field>
+        <field name="type">form</field>
+		<field name="arch" type="xml">
+		    <form string="Actualizar">
+				<group>
+					<button string="Actualizar gastos" name="crear_gastos" type="object"/>
+				</group>
+		    </form>   
+		</field>
+	</record>
+	<record id="action_lascuentas_gasto_wiz" model="ir.actions.act_window">
+        <field name="name">Actualizar gastos</field>
+        <field name="type">ir.actions.act_window</field>
+		<field name="view_id" ref="view_lascuentas_gasto_wiz"/>
+        <field name="res_model">lascuentas.actualizar</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        action="action_lascuentas_gasto_wiz"
+		parent="menu_lascuentas_gastos_lateral"
+        id="menu_action_lascuentas_gasto_form"
+        sequence="40"/>
+		
+	<!-- Pagos -->	
+	<record id="view_lascuentas_pago_tree" model="ir.ui.view">
+		<field name="name">lascuentas.pago.tree</field>
+        <field name="model">lascuentas.pago</field>
+		<field name="arch" type="xml">
+			<tree string="Pagos" editable="bottom" >
+				<field name="periodo_id"/>
+				<field name="users_id"/>
+				<field name="caja_id"/>
+				<field name="concepto_id"/>
+				<field name="fecha"/>
+				<field name="importe"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_lascuentas_pago_tree" model="ir.actions.act_window">
+        <field name="name">Pagos</field>
+		<field name="view_id" ref="view_lascuentas_pago_tree"/>
+        <field name="res_model">lascuentas.pago</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Pagos" id="menu_lascuentas_pagos" sequence="4"/>
+	<menuitem
+		name="Pagos"
+		parent="menu_lascuentas_pagos"
+        id="menu_lascuentas_pagos_lateral"/>
+	<menuitem
+        action="action_lascuentas_pago_tree"
+		parent="menu_lascuentas_pagos_lateral"
+        id="menu_action_lascuentas_pago_tree"
+        sequence="10"/>
+		
+	<record id="action_lascuentas_users_tree" model="ir.actions.act_window">
+        <field name="name">Usuarios</field>
+		<field name="view_id" ref="base.view_users_tree"/>
+        <field name="res_model">res.users</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        action="action_lascuentas_users_tree"
+		parent="menu_lascuentas_pagos_lateral"
+        id="menu_action_lascuentas_users_tree"
+        sequence="20"/>
+		
+	<!-- Resultados -->	
+	<record id="view_lascuentas_periodo_tree" model="ir.ui.view">
+		<field name="name">lascuentas.periodo.tree</field>
+        <field name="model">lascuentas.periodo</field>
+		<field name="arch" type="xml">
+			<tree string="Periodos" editable="bottom">
+				<field name="name"/>
+				<field name="abierto"/>
+				<field name="saldo_total"/>
+				<field name="saldo_reservado"/>
+				<field name="saldo_disponible"/>
+				<field name="prevision_anual_total"/>
+				<field name="dias_cubiertos"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_lascuentas_periodo_tree" model="ir.actions.act_window">
+        <field name="name">Periodos</field>
+		<field name="view_id" ref="view_lascuentas_periodo_tree"/>
+        <field name="res_model">lascuentas.periodo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Resultados" id="menu_lascuentas_resultados" sequence="6"/>
+	<menuitem
+		name="Resultados"
+		parent="menu_lascuentas_resultados"
+        id="menu_lascuentas_resultados_lateral"/>
+	<menuitem
+        action="action_lascuentas_periodo_tree"
+		parent="menu_lascuentas_resultados_lateral"
+        id="menu_action_lascuentas_periodo_tree"
+        sequence="10"/>
+
+	<record id="view_lascuentas_saldo_tree" model="ir.ui.view">
+		<field name="name">lascuentas.saldo.tree</field>
+        <field name="model">lascuentas.saldo</field>
+		<field name="arch" type="xml">
+			<tree string="Saldos" editable="bottom">
+				<field name="periodo_id"/>
+				<field name="caja_id"/>
+				<field name="importe"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_lascuentas_saldo_tree" model="ir.actions.act_window">
+        <field name="name">Saldos</field>
+		<field name="view_id" ref="view_lascuentas_saldo_tree"/>
+        <field name="res_model">lascuentas.saldo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        action="action_lascuentas_saldo_tree"
+		parent="menu_lascuentas_resultados_lateral"
+        id="menu_action_lascuentas_saldo_tree"
+        sequence="20"/>
+		
+	<record id="view_lascuentas_caja_tree" model="ir.ui.view">
+		<field name="name">lascuentas.caja.tree</field>
+        <field name="model">lascuentas.caja</field>
+		<field name="arch" type="xml">
+			<tree string="Cajas" editable="bottom">
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_lascuentas_caja_tree" model="ir.actions.act_window">
+        <field name="name">Cajas</field>
+		<field name="view_id" ref="view_lascuentas_caja_tree"/>
+        <field name="res_model">lascuentas.caja</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        action="action_lascuentas_caja_tree"
+		parent="menu_lascuentas_resultados_lateral"
+        id="menu_action_lascuentas_caja_tree"
+        sequence="30"/>
+				
+</data>
+</openerp>

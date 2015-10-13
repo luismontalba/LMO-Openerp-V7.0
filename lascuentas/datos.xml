@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	
+        <record model="lascuentas.tipo" id="tipo_1" >
+            <field name="name">Coches</field>
+            <field name="orden">200</field>
+        </record>
+        <record model="lascuentas.tipo" id="tipo_2" >
+            <field name="name">Hogar</field>
+            <field name="orden">50</field>
+        </record>
+		
+        <record model="lascuentas.concepto" id="concepto_1" >
+            <field name="tipo_id" ref="tipo_1"/>
+            <field name="orden">50</field>
+            <field name="name">Gasoil Peugeot</field>
+            <field name="reserva_inicial">125</field>
+            <field name="frecuencia_anual">14</field>
+            <field name="importe_unitario">55</field>
+        </record>
+        <record model="lascuentas.concepto" id="concepto_2" >
+            <field name="tipo_id" ref="tipo_1"/>
+            <field name="orden">60</field>
+            <field name="name">Gasoil Renault</field>
+            <field name="reserva_inicial">135</field>
+            <field name="frecuencia_anual">10</field>
+            <field name="importe_unitario">120</field>
+        </record>
+		
+        <record model="lascuentas.concepto" id="concepto_3" >
+            <field name="tipo_id" ref="tipo_2"/>
+            <field name="orden">10</field>
+            <field name="name">Salud</field>
+            <field name="reserva_inicial">10</field>
+            <field name="frecuencia_anual">12</field>
+            <field name="importe_unitario">50</field>
+        </record>
+        <record model="lascuentas.concepto" id="concepto_4" >
+            <field name="tipo_id" ref="tipo_2"/>
+            <field name="orden">20</field>
+            <field name="name">Energía</field>
+            <field name="reserva_inicial">-251</field>
+            <field name="frecuencia_anual">6</field>
+            <field name="importe_unitario">120</field>
+        </record>
+		
+        <record model="lascuentas.periodo" id="periodo_1" >
+            <field name="name">2015_03</field>
+        </record>
+		
+        <record model="lascuentas.pago" id="pago_1" >
+            <field name="periodo_id" ref="periodo_1"/>
+            <field name="concepto_id" ref="concepto_1"/>
+            <field name="importe">12</field>
+        </record>
+		
+        <record model="lascuentas.caja" id="caja_1" >
+            <field name="name">Ibercaja</field>
+        </record>
+		
+        <record model="lascuentas.saldo" id="saldo_1" >
+            <field name="periodo_id" ref="periodo_1"/>
+            <field name="caja_id" ref="caja_1"/>
+            <field name="importe">5900</field>
+        </record>
+		
+		
+		
+    </data>
+</openerp>
