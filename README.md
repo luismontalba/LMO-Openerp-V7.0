@@ -1,7 +1,5 @@
-OpenERP7.0
-==========
-
-Módulos para OpenERP 7.0
+OpenERP 7.0 modules
+===================
 
 bom_cost:
 ---------
